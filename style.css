@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+#myCard {
+    /* Set the shadow properties */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    width: 25%;
+    height: 50%;
+    margin: 200px 100px;
+}
+
+.img {
+    align-items: start;
+}
+
+.img img {
+    max-width: 100%;
+    max-height: 60%;
+    border-radius: 20px
+}
+
+.rating {
+    width: 35px;
+    background-color: green;
+    padding: 1px 4px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.max-safety-img{
+    height: 30px;
+}
