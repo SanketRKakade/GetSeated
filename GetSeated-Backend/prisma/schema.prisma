@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String   @id @default(autoincrement())
+  email             String   @unique
+  username          String   @unique
+  reg_id            String   @unique
+  password          String
+  is_seat_booked    Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([username, reg_id, is_seat_booked], name: "user_status")
+  @@unique([username, reg_id])
+}
+
+model Seat {
+  id                String   @id @default(autoincrement())
+  seat_number       Int
+  is_booked         Boolean  @default(false)
+  user              User?    @relation(fields: [user_id], references: [id])
+  user_id           String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+
+  @@index([seat_number, is_booked], name: "seat_status")
+}
+
+model Active_Bookings {
+  id                String   @id @default(autoincrement())
+  user              User?    @relation(fields: [user_id], references: [id])
+  user_id           String?
+  seat              Seat?    @relation(fields: [seat_id], references: [id])
+  seat_id           String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Past_Bookings {
+  id                String   @id @default(autoincrement())
+  user              User?    @relation(fields: [user_id], references: [id])
+  user_id           String?
+  seat              Seat?    @relation(fields: [seat_id], references: [id])
+  seat_id           String?
+  seat_booked_at    DateTime
+  seat_freed_at     DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Hall_Bookings {
+  id                String   @id @default(autoincrement())
+  hall              Hall
+  booked_by         String
+  agenda            String
+  description       String
+  start_time        DateTime
+  end_time          DateTime
+  status            
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+
+
+enum Hall {
+  CE_SEMINAR_HALL,
+  ENTE_SEMINAR_HALL,
+  IT_SEMINAR_HALL,
+  AUDITORIUM
+}
+
+enum

@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 5rem;
+  display: flex;
+  font-weight: 700;
+  font-family: 'times new roman';
+    /* text-align: center; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background-color: white;
+  color: black;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body{
+  overflow: hidden;
+}
+
+header{
+  font-family: 'times new roman';
+  text-align: center;
+  background-color: #90E0EF;
+
+}
+label{
+  display:none;
+}
+
+.maindiv
+{
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: #90E0EF; */
+  /* background-image: ; */
+  align-items: center;
+  border: solid 1px black;
+  height: 100vh;
+  
+}
+
+.qrcodecontainer{
+  padding: 0.5em;
+  background-color: white;
+  /* box-shadow: 5px red; */
+}
+
+.container{
+  background-color: #90E0EF;
+  /* border: solid 1px olive; */
+  /* background-color:#dacdcd; */
+  height: 20%;
+  width: 40%;
+  border-radius: 20px;
+}
+
+.capacity{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.labels{
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Times New Roman';
+  font-size: 20px;
+  color: #0c6cb0;
+  text-shadow: #000 0px 0px 1px;
+}
+
+.occupied ,.available
+{
+  text-align: center;
+  border: solid 1px black;
+  background-color: #0c6cb0;
+  color: white;
+  height: 35%;
+  width: 40%;
+  box-shadow: 10px 5px 5px rgb(47, 43, 43);
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
